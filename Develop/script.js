@@ -29,9 +29,9 @@ function writePassword() {
   passSpcl = confirm("Should it include special characters?");
 
   var password = generatePassword();
-  // var passwordText = document.querySelector("#password");
+  var passwordText = document.querySelector("#password");
   alert("You have chosen a password that is " + passLength + " characters long. Lower case: " + passLower + " Upper case: " + passUpper + " Numbers: " + passNum + " Special characters: " + passSpcl);
-  // passwordText.value = password;
+  passwordText.value = password;
 }
 // var passChoices = {
 //   passlength: passLength,
@@ -43,28 +43,44 @@ function writePassword() {
 // // return passChoice;
 
 function generatePassword() {
-  var characterlist = "";
+  var characterlist = [];
+  var li = 0;
   if (passUpper === true) {
-    for (i=0 ; i < alphabetU.length ; i++){
-      li ++;
-      characterlist.push(alphabetU[i])
-      console.log(characterlist)
+    for (i = 0; i < alphabetU.length; i++) {
+      li++;
+      characterlist[li] = alphabetU[i];
     }
-    console.log("it worked");
   }
-  // if (passLower === true) {
-  //   for (i=0 ; i < alphabetU.length ; i++){
-  //     li ++;
-  //     characterlist[li]=alphabetL[i];
-  //   }
+  if (passLower === true) {
+    for (i = 0; i < alphabetL.length; i++) {
+      li++;
+      characterlist[li] = alphabetL[i];
+    }
   }
+  if (passNum === true) {
+    for (i = 0; i < num.length; i++) {
+      li++;
+      characterlist[li] = num[i];
+    }
+  }
+  if (passSpcl === true) {
+    for (i = 0; i < spcl.length; i++) {
+      li++;
+      characterlist[li] = spcl[i];
+    }
+  }
+  var pass = ""
+  var characterlist
+  for (var i = 0; i < passLength; i ++) {
+      pass += characterlist[Math.floor(Math.random() * characterlist.length)]
+  }
+  return pass;
+}
 
 
-  // return passTemp;
+// return passTemp;
 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-
-//
