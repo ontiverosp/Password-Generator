@@ -1,3 +1,3 @@
 # Password-Generator
-password generator
-I made  password generator using javascript that lets the user pick the password length and character sets. then generates a andom password with the set parameters.
+password generator.
+I made this password generator using javascript and it lets the user pick the password length and character sets. Then it generates a random password with the set parameters.
