@@ -10,7 +10,7 @@ var passSpcl;
 alphabetL = 'abcdefghijklmnopqrstuvwxyz'.split('');
 alphabetU = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 num = '1234567890'.split('');
-spcl = '@%+?!#$^&*/:{}[]()~,'.split('');
+spcl = '!%&,*+_/<>?~'.split('');
 
 
 // Write password to the #password input
@@ -24,7 +24,6 @@ function writePassword() {
   }
   passLower = confirm("Should it include lower case letters?");
   passUpper = confirm("Should it include upper case letters?");
-  console.log(passUpper)
   passNum = confirm("Should it include numbers?");
   passSpcl = confirm("Should it include special characters?");
 
@@ -33,46 +32,41 @@ function writePassword() {
   alert("You have chosen a password that is " + passLength + " characters long. Lower case: " + passLower + " Upper case: " + passUpper + " Numbers: " + passNum + " Special characters: " + passSpcl);
   passwordText.value = password;
 }
-// var passChoices = {
-//   passlength: passLength,
-//   passLower: passLower,
-//   passUpper: passUpper,
-//   passNum: passNum,
-//   passSpcl: passSpcl
-// }
-// // return passChoice;
 
 function generatePassword() {
   var characterlist = [];
   var li = 0;
   if (passUpper === true) {
     for (i = 0; i < alphabetU.length; i++) {
-      li++;
+      
       characterlist[li] = alphabetU[i];
+      li++;
     }
   }
   if (passLower === true) {
     for (i = 0; i < alphabetL.length; i++) {
-      li++;
+
       characterlist[li] = alphabetL[i];
+      li++;
     }
   }
   if (passNum === true) {
     for (i = 0; i < num.length; i++) {
-      li++;
+    
       characterlist[li] = num[i];
+      li++;
     }
   }
   if (passSpcl === true) {
     for (i = 0; i < spcl.length; i++) {
-      li++;
+      
       characterlist[li] = spcl[i];
+      li++;
     }
   }
   var pass = ""
-  var characterlist
   for (var i = 0; i < passLength; i ++) {
-      pass += characterlist[Math.floor(Math.random() * characterlist.length)]
+    pass += characterlist[Math.floor(Math.random() * characterlist.length)]
   }
   return pass;
 }
